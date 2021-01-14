@@ -10,40 +10,30 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr; /* 3 x 3 rutenett:kolonner */
     grid-template-rows: 1fr 1fr 1fr; /* 3 x 3 rutenett:rader */
-    align-content: center;
     margin: auto; /*sentrerer på skjermen */
     padding-top: 200px;
-    width:600px; 
+    width:600px; /* width på rute * 3 */
     
-}
-#grid > div{
-border: 1px solid black;
-
-
 }
 
 
 .rute {
-    /*rgb(0, 0, 0)*/
-    border: 2px solid;
-    min-height: 50px;
-    width: 200px;
-    height:200px;
+    width: 200px; /* kvadrat */
+    height: 200px; /* kvadrat */
 }
 .rute:hover {
-    border: 6px solid cyan;
     box-shadow: none; /* fjerner at booksene beveger seg når du hovrer*/
-    box-sizing: border-box; 
+    box-sizing: border-box; /* fjerner at booksene beveger seg når du hovrer*/
 }
 .blue:hover{
-    background-color:blue;
+    background-color:blue;/*setter farge når du hovrer over orange boks*/
 }
 .blue{
-    background-color: rgb(230, 154, 15);
+    background-color: rgb(230, 154, 15); /*setter farge på blue class*/
 }
-.red{
-    background-color: rgb(167, 58, 177);
+.red {
+    background-color: rgb(167, 58, 177); /*setter farge på red class*/
 }
 .red:hover{
-    background-color:red;
+    background-color:red; /*setter farge når du hovrer over Lilla boks*/
 }
