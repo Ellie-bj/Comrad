@@ -1,11 +1,9 @@
 
 
 
-*{
-    margin:0px;
-    padding:0px;
-   
-   
+* {
+    margin: 0px; /* resetter browser til å ta bort browser margin  */
+    padding: 0px; /* resetter browser til å ta bort browser padding  */
 }
 body {
     background-color: #efefef; /*background color lagt til for smooth titting*/
