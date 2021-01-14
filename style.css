@@ -5,15 +5,19 @@
     margin:0px;
     padding:0px;
    
+   
+}
+body {
+    background-color: #efefef; /*background color lagt til for smooth titting*/
 }
 #page {
-    display: grid;
+    display: grid; /* setter #page i en grid */
     grid-template-columns: 1fr 1fr 1fr; /* 3 x 3 rutenett:kolonner */
     grid-template-rows: 1fr 1fr 1fr; /* 3 x 3 rutenett:rader */
     margin: auto; /*sentrerer på skjermen */
-    padding-top: 200px;
-    width:600px; /* width på rute * 3 */
-    
+    padding-top: 150px; /* sentrerer på pc-skjerm */
+    padding-bottom: 150px; /* sentrerer på pc-skjerm */
+    width: 600px; /* width på rute * 3 */
 }
 
 
