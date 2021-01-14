@@ -1,0 +1,49 @@
+
+
+
+*{
+    margin:0px;
+    padding:0px;
+   
+}
+#page {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* 3 x 3 rutenett:kolonner */
+    grid-template-rows: 1fr 1fr 1fr; /* 3 x 3 rutenett:rader */
+    align-content: center;
+    margin: auto; /*sentrerer på skjermen */
+    padding-top: 200px;
+    width:600px; 
+    
+}
+#grid > div{
+border: 1px solid black;
+
+
+}
+
+
+.rute {
+    /*rgb(0, 0, 0)*/
+    border: 2px solid;
+    min-height: 50px;
+    width: 200px;
+    height:200px;
+}
+.rute:hover {
+    border: 6px solid cyan;
+    box-shadow: none; /* fjerner at booksene beveger seg når du hovrer*/
+    box-sizing: border-box; 
+}
+.blue:hover{
+    background-color:blue;
+}
+.blue{
+    background-color: rgb(230, 154, 15);
+}
+.red{
+    background-color: rgb(167, 58, 177);
+}
+.red:hover{
+    background-color:red;
+}
