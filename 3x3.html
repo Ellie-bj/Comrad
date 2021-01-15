@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,
+    height=device-height">
+    <title>3x3</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+<div id="page">
+
+        <div onclick="clickedMe(this)" id="bilde1" class="rute blue"></div>
+        <div onclick="clickedMe(this)" id="bilde2" class="rute red"></div>
+        <div onclick="clickedMe(this)" id="bilde3" class="rute blue"></div>
+        <div onclick="clickedMe(this)" id="bilde4" class="rute red"></div>
+        <div onclick="clickedMe(this)" id="bilde5" class="rute blue"></div>
+        <div onclick="clickedMe(this)" id="bilde6" class="rute red"></div>
+        <div onclick="clickedMe(this)" id="bilde7" class="rute blue"></div>
+        <div onclick="clickedMe(this)" id="bilde8" class="rute red"></div>
+        <div onclick="clickedMe(this)" id="bilde9" class="rute blue"></div>
+
+   </div>
+    <script>
+        function clickedMe(element) {
+            element.classList.add("clicked");
+             if (element.classList.contains("blue")) {
+                 element.classList.add("red");
+                 element.classList.remove("blue");
+             }else if (element.classList.contains("red")) {
+                 element.classList.add("blue");
+                 element.classList.remove("red");
+             }
+        } 
+    </script>
+</body>
+</body>

@@ -8,6 +8,8 @@
 body {
     background-color: #efefef; /*background color lagt til for smooth titting*/
 }
+
+
 #page {
     display: grid; /* setter #page i en grid */
     grid-template-columns: 200px 200px 200px; /* 3 x 3 rutenett:kolonner */
@@ -20,19 +22,54 @@ body {
 
 
 
+
+.rute { width: 200px; /* rute bredde*/
+    height:200px; /* rute høyde*/
+    position: relative; /* possisionen */
+   
+
+}
+
 .rute:hover {
     box-shadow: none; /* fjerner at booksene beveger seg når du hovrer*/
     box-sizing: border-box; /* fjerner at booksene beveger seg når du hovrer*/
 }
 .blue:hover{
-    background-color:blue;/*setter farge når du hovrer over orange boks*/
+    /*setter farge når du hovrer over orange boks*/
 }
 .blue{
     background-color: rgb(230, 154, 15); /*setter farge på blue class*/
-}
-.red {
+}   
+
+.red { 
     background-color: rgb(167, 58, 177); /*setter farge på red class*/
 }
 .red:hover{
-    background-color:red; /*setter farge når du hovrer over Lilla boks*/
+     /*setter farge når du hovrer over Lilla boks*/
+
+    width: 200px; /* rute bredde*/
+    height:200px; /* rute høyde*/
+    position: relative; /* possisionen */
+    
 }
+
+.rute:hover {
+    box-shadow: none; /* fjerner at booksene beveger seg når du hovrer*/
+    box-sizing: border-box; /* fjerner at booksene beveger seg når du hovrer*/
+}
+.blue:hover{
+    /*setter farge når du hovrer over orange boks*/
+}
+.blue{
+    background-color: rgb(230, 154, 15); /*setter farge på blue class*/
+}   
+
+.red { 
+    background-color: rgb(167, 58, 177); /*setter farge på red class*/
+}
+    .red:hover {
+        /*setter farge når du hovrer over Lilla boks*/
+    }
+/* .clicked { /*transformation skal her*/
+    /* background-color: rgb(230, 154, 15);} */
+ 
