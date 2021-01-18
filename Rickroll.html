@@ -17,18 +17,53 @@
     </audio>
     -->
     <div id="page">
-        <div onclick="clickedMe(this)" id="bilde1" class="rute blue"></div>
-        <div onclick="clickedMe(this)" id="bilde2" class="rute red"></div>
-        <div onclick="clickedMe(this)" id="bilde3" class="rute blue"></div>
-        <div onclick="clickedMe(this)" id="bilde4" class="rute red"></div>
-        <div onclick="clickedMe(this)" id="bilde5" class="rute blue"></div>
-        <div onclick="clickedMe(this)" id="bilde6" class="rute red"></div>
-        <div onclick="clickedMe(this)" id="bilde7" class="rute blue"></div>
-        <div onclick="clickedMe(this)" id="bilde8" class="rute red"></div>
-        <div onclick="clickedMe(this)" id="bilde9" class="rute blue"></div>
-    </div>
+        <div class="content">
+            <div onclick="clickedMe(this)" id="bilde1" class="rute blue">
+            <img src="Rickroll\9.jpg" alt="9">
+            </div>
+
+            <div onclick="clickedMe(this)" id="bilde2" class="rute red">
+                <img src="Rickroll\8.jpg" alt="8">
+            </div>
+
+            <div onclick="clickedMe(this)" id="bilde3" class="rute blue">
+                <img src="Rickroll\7.jpg" alt="7">
+            </div>
+
+            <div onclick="clickedMe(this)" id="bilde4" class="rute red">
+                <img src="Rickroll\6.jpg" alt="6">
+            </div>
+
+            <div onclick="clickedMe(this)" id="bilde5" class="rute blue">
+                <img src="Rickroll\5.jpg" alt="5">
+            </div>
+
+            <div onclick="clickedMe(this)" id="bilde6" class="rute red">
+                <img src="Rickroll\4.jpg" alt="4">
+            </div>
+
+            <div onclick="clickedMe(this)" id="bilde7" class="rute blue">
+                <img src="Rickroll\3.jpg" alt="3">
+            </div>
+
+            <div onclick="clickedMe(this)" id="bilde8" class="rute red">
+                <img src="Rickroll\2.jpg" alt="2">
+            </div>
+
+            <div onclick="clickedMe(this)" id="bilde9" class="rute blue">
+                <img src="Rickroll\1.jpg" alt="1">
+            </div>
+        </div>
+
+        </div>
+   
     <script>
-        //function clickedMe(element) {
+        function clickedMe(element) {
+            console.log("this");
+            let img = element.getElementsByTagName("img");
+            for (i = 0; i < img.length; i++) {
+                img[i].style.display = "inline";
+            }
             // //element.classList.add("clicked");
             // if (element.classList.contains("blue")) {
             //     element.classList.add("red");
@@ -37,7 +72,7 @@
             //     element.classList.add("blue");
             //     element.classList.remove("red");
             // }
-       // } 
+       } 
     </script>
 </body>
 </html>

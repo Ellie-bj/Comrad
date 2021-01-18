@@ -8,19 +8,69 @@ body {
 
 
 #page {
-    display: grid; /* setter #page i en grid */
-    grid-template-columns: 200px 200px 200px; /* 3 x 3 rutenett:kolonner */
-    grid-template-rows: 200px 200px 200px; /* 3 x 3 rutenett:rader */
+    
     margin: auto; /*sentrerer på skjermen */
     padding-top: 150px; /* sentrerer på pc-skjerm */
     padding-bottom: 150px; /* sentrerer på pc-skjerm */
     width: 600px; /* width på rute * 3 */
+    
 }
-
 img {
     width:200px; /*bredde på bilde */
     height:200px; /*høyde på bilde*/
-
+}
+.rute { 
+    width: 200px; /* rute bredde*/
+    height:200px; /* rute høyde*/
+  
+    
+}
+.content {
+    display: grid; /* setter #page i en grid */
+    grid-template-columns: 200px 200px 200px; /* 3 x 3 rutenett:kolonner */
+    grid-template-rows: 200px 200px 200px; /* 3 x 3 rutenett:rader */
 }
 
-div.ima
+.blue{
+    background-color: rgb(230, 154, 15); /*setter farge på blue class*/
+}   
+
+.red { 
+    background-color: rgb(167, 58, 177); /*setter farge på red class*/
+}
+
+
+.blue{
+    background-color: rgb(230, 154, 15); /*setter farge på blue class*/
+}   
+
+.red { 
+    background-color: rgb(167, 58, 177); /*setter farge på red class*/
+}
+#bilde1 img{
+    display: none;
+}
+#bilde2 img {
+    display: none;
+}
+#bilde3 img {
+    display: none;
+}
+#bilde4 img {
+    display: none;
+}
+#bilde5 img {
+    display: none;
+}
+#bilde6 img {
+    display: none;
+}
+#bilde7 img {
+    display: none;
+}
+#bilde8 img {
+    display: none;
+}
+#bilde9 img {
+    display: none;
+}
