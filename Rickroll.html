@@ -62,16 +62,18 @@
             console.log("this");
             let img = element.getElementsByTagName("img");
             for (i = 0; i < img.length; i++) {
-                img[i].style.display = "inline";
+                img[i].style.display = "inline"; // set visibility of all img within the element; not the document
             }
-            // //element.classList.add("clicked");
-            // if (element.classList.contains("blue")) {
-            //     element.classList.add("red");
-            //     element.classList.remove("blue");
-            // }else if (element.classList.contains("red")) {
-            //     element.classList.add("blue");
-            //     element.classList.remove("red");
-            // }
+            img = document.getElementsByTagName("img");
+            for (i = 0; i < img.length; i++) {
+                if (img[0].style.display === "inline" && img[1].style.display === "inline" && img[2].style.display === "inline" && img[3].style.display === "inline" && img[4].style.display === "inline" && img[5].style.display === "inline" && img[6].style.display === "inline" && img[7].style.display === "inline" && img[8].style.display === "inline") {
+                   //play audio  when all img have been clicked
+                    var audio = new Audio('rickroll.mp3');
+                    audio.play();
+                }
+
+            }
+
        } 
     </script>
 </body>
