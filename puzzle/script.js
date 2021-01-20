@@ -1,6 +1,7 @@
 //model
-var elapsedTimeText 
-    
+var elapsedTimeText; 
+var parrentid;   
+var victoryTime;  
     
 //controller
 function allowDrop(ev) {
@@ -15,6 +16,11 @@ function drop(ev) {
   ev.preventDefault();
   var data = ev.dataTransfer.getData("text");
   ev.target.appendChild(document.getElementById(data));
+  /*parrentid1 = document.getElementById(data).parentElement.id
+  imgId1 =
+  console.log(data);
+  console.log(); */
+  victory();
 }
 
 /** Stores the reference to the elapsed time interval*/
@@ -43,6 +49,18 @@ elapsedTimeIntervalRef = setInterval(() => {
 }
 
 
+function victory(){
+    if(document.getElementById("div1").childNodes.length > 0 && document.getElementById("div1").childNodes.length > 0){
+       
+        if(document.getElementById("div1").childNodes[0].id == "drag1" && document.getElementById("div2").childNodes[0].id == "drag2"){
+            victoryTime = elapsedTimeText;
+            stopStopwatch();
+            showModal(); 
+        }
+    }
+}
+
+
 /** Sets the start time value */
 function setStartTime() {
 if (elapsedTimeWhenPaused) {
@@ -68,8 +86,6 @@ if (typeof elapsedTimeIntervalRef !== "undefined") {
 // Store the elapsed time on pause
 storeElapsedTimeOnPause();
 
-// display the start button
-displayStartButton();
 }
 
 /** Stores the elapsed time hours, minutes and seconds details
@@ -200,6 +216,10 @@ function startGame(){ //starts the game
     `;
     elapsedTimeText = document.getElementsByClassName("elapsed-time-text")[0];
     startStopwatch()
+}
+
+function showModal(){
+    
 }
 
 
