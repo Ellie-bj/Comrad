@@ -17,7 +17,10 @@ function drop(ev) {
   var data = ev.dataTransfer.getData("text");
   ev.target.appendChild(document.getElementById(data));
        console.log(ev.target.id); //diven man dropper i 
-        
+    //teste om div inneholder bilde fra før. 
+    //teste om bilde er riktig for div
+     // såkjør victory()
+
   /*parrentid1 = document.getElementById(data).parentElement.id
   imgId1 =
   console.log(data);
@@ -203,13 +206,17 @@ function startGame(){ //starts the game
             
 
             <div class="flex-container">
-                <img id="drag1" class="pusslebit" src="img/semi.jpg" draggable="true" ondragstart="drag(event)" >
-                <img id="drag2" class="pusslebit" src="img/semi.jpg" draggable="true" ondragstart="drag(event)">
+                <img id="drag1" class="pusslebit" src="img/row-1-col-1.jpg" draggable="true" ondragstart="drag(event)" >
+                <img id="drag2" class="pusslebit" src="img/row-1-col-2.jpg" draggable="true" ondragstart="drag(event)">
+                <img id="drag3" class="pusslebit" src="img/row-2-col-1.jpg" draggable="true" ondragstart="drag(event)" >
+                <img id="drag4" class="pusslebit" src="img/row-2-col-2.jpg" draggable="true" ondragstart="drag(event)">
             </div>
             
             <div id="pusslespill">
                 <div id="div1" class="drop" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
                 <div id="div2" class="drop" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <div id="div3" class="drop" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <div id="div4" class="drop" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
             </div>
     </center>
     `;

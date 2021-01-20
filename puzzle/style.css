@@ -2,16 +2,21 @@
     padding:0px;
     margin:0px;
 }
-#div1, #div2{
-    width: 200px;
+#div1, #div2, #div3, #div4{     /*Spill brett ruter*/
+    width: 100px;
     height: 100px;
-    border: 1px solid rgb(0, 0, 0);
+    border:1px solid rgb(0, 0, 0);
 }
-#pusslespill{
-    display: flex;
+#pusslespill{   /*Spill brett*/
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: auto auto;
     flex-direction: row;
     margin:100px auto;
+    width:200px;
+    height:200px;
 }
+
 #mAuto{
     text-align: center;
     background-color: rgb(165, 165, 165);
@@ -45,23 +50,16 @@ body{
 .flex-container {
     background-image: linear-gradient(180deg, rgb(0, 0, 0), rgb(0, 110, 255));
     display: flex;
-    padding: auto;
     height: 150px;
-    width: auto;
-    padding-left: 150px;
     padding-top:30px;
 }
  .flex-container .pusslebit{
-    margin-left: 20px;
-    
+    display: block;
+    margin-left: auto;
+    margin-right: auto
  }
 
-#pusslespill {
-    background-color: rgba(255, 255, 255, 0.8);
-    width:200px;
-    height:100px;
-    margin:5% auto;
-}
+
 .pusslebit {
     width: 100px;
     height: 100px;
@@ -74,7 +72,6 @@ body{
 .elapsed-time-text{
     font-size: 1.75em;
 }
-
 
 #picture{
     background-image: url("https://pinguinpingu.files.wordpress.com/2013/03/header.jpg");
