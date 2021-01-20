@@ -181,12 +181,22 @@ function startGame(){ //starts the game
     
     app.innerHTML = '';
     app.innerHTML = `
-        <div id="divWrapper">
-            <div id="div1" class="drop" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-            <div id="div2" class="drop" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        </div>
+            <center>
+                <img src="https://i.pinimg.com/originals/1b/5c/3c/1b5c3c20f0692de2d67d0e028757ebab.png" width="200" height="200">
+                <h2>Dra pusslebitene ned til brettet</h2>
+            </center>
+
+            <div class="flex-container">
+                <img id="drag1" class="pusslebit" src="img/semi.jpg" draggable="true" ondragstart="drag(event)" >
+                <img id="drag2" class="pusslebit" src="img/semi.jpg" draggable="true" ondragstart="drag(event)">
+            </div>
+            
+            <div id="pusslespill">
+                <div id="div1" class="drop" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <div id="div2" class="drop" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            </div>
+        
         <p class="elapsed-time-text">00:00</p>
-        <img id="drag1" src="img/semi.jpg" draggable="true" ondragstart="drag(event)" width="336" height="69">
     `;
     elapsedTimeText = document.getElementsByClassName("elapsed-time-text")[0];
     startStopwatch()

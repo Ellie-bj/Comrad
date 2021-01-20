@@ -1,19 +1,55 @@
 #div1, #div2{
-    width: 300px;
-    height: 200px;
+    width: 200px;
+    height: 100px;
     border: 1px solid gray;
 }
-#divWrapper{
+#pusslespill{
     display: flex;
     flex-direction: row;
-  
+    margin:100px auto;
 }
 #mAuto{
     margin: auto;
-text-align: center;
+    text-align: center;
 }
 #mAuto button{
     padding:20px;
     font-size:1rem;
     cursor: pointer;
+}
+body {
+    background-color: powderblue
+}
+
+.flex-container {
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    padding: 10px;
+    height: 150px;
+    width: 100%;
+    padding-left: 150px;
+    padding-top:30px;
+}
+
+ .flex-container .pusslebit{
+    margin-left: 20px;
+ }
+
+#pusslespill {
+    background-color: rgba(255, 255, 255, 0.8);
+    width:200px;
+    height:100px;
+    margin: 100px auto;
+}
+.pusslebit {
+    width: 100px;
+    height: 100px;
+}
+.pusslebit img{
+    width:100px;
+    height: 100px;
+}
+
+.elapsed-time-text{
+    font-size: 1.75em;
 }
