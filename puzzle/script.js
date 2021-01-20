@@ -1,9 +1,9 @@
-//model
+//model___________________________________________________________________________________________________________________________________
 var elapsedTimeText; 
 var parrentid;   
 var victoryTime;  
     
-//controller
+//controller______________________________________________________________________________________________________________________________
 function allowDrop(ev) {
   ev.preventDefault();
 }
@@ -16,6 +16,8 @@ function drop(ev) {
   ev.preventDefault();
   var data = ev.dataTransfer.getData("text");
   ev.target.appendChild(document.getElementById(data));
+       console.log(ev.target.id); //diven man dropper i 
+        
   /*parrentid1 = document.getElementById(data).parentElement.id
   imgId1 =
   console.log(data);
@@ -55,7 +57,8 @@ function victory(){
         if(document.getElementById("div1").childNodes[0].id == "drag1" && document.getElementById("div2").childNodes[0].id == "drag2"){
             victoryTime = elapsedTimeText;
             stopStopwatch();
-            showModal(); 
+            showModal();
+            updateView();
         }
     }
 }
@@ -116,8 +119,6 @@ if (typeof elapsedTimeIntervalRef !== "undefined") {
 // Reset elapsed time when paused object
 elapsedTimeWhenPaused = undefined
 
-// display the start button
-displayStartButton();
 
 // Reset elapsed time text
 elapsedTimeText.innerText = "00:00";
@@ -179,15 +180,14 @@ getElapsedTime: function (startTime) {
 }
 }
 
-//view
+//view______________________________________________________________________________________________________________________________
 let app 
 
 function init(){ //inits start screen
     app =  document.getElementById("app");
     app.innerHTML = `
         <div id="mAuto">
-        <h1>Puzzle</h1>
-        <button onclick="startGame()">Start</button>
+            <button onclick="startGame()">Start</button>
         </div>    
     `;
 }
@@ -195,12 +195,12 @@ function init(){ //inits start screen
 function startGame(){ //starts the game
     //start timer
     
-    app.innerHTML = '';
     app.innerHTML = `
-            <center>
-                <img src="https://i.pinimg.com/originals/1b/5c/3c/1b5c3c20f0692de2d67d0e028757ebab.png" width="200" height="200">
-                <h2>Dra pusslebitene ned til brettet</h2>
-            </center>
+    <center>
+                <div id="picture"></div>
+                <h2>Comrad Pingu Puzzle</h2>
+                <p class="elapsed-time-text">00:00</p>
+            
 
             <div class="flex-container">
                 <img id="drag1" class="pusslebit" src="img/semi.jpg" draggable="true" ondragstart="drag(event)" >
@@ -211,15 +211,36 @@ function startGame(){ //starts the game
                 <div id="div1" class="drop" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
                 <div id="div2" class="drop" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
             </div>
-        
-        <p class="elapsed-time-text">00:00</p>
+    </center>
     `;
     elapsedTimeText = document.getElementsByClassName("elapsed-time-text")[0];
     startStopwatch()
 }
 
-function showModal(){
-    
+function updateView(){
+    app.innerHTML +=` <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Finished!</h2>
+            </div>
+
+            <div class="modal-body">
+                <p>Congratulation you finished the puzzle!</p>
+                <img src="https://i.pinimg.com/originals/1b/5c/3c/1b5c3c20f0692de2d67d0e028757ebab.png" width="auto" height="400px">
+            </div>
+
+            <div class="modal-footer">
+                <h3>Time used: ${victoryTime.innerHTML}</h3>
+                <button onclick="startGame()">Restart</button>
+            </div>
+        </div>
+    </div>`;
+}
+
+function showModal() {
+    updateView();
+    document.getElementById("modal").style.display = "inline";
+    resetStopwatch();    
 }
 
 
