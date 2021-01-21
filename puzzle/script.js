@@ -204,12 +204,13 @@ function startGame(){ //starts the game
                 <h2>Comrad Pingu Puzzle</h2>
                 <p class="elapsed-time-text">00:00</p>
             
-
-            <div class="flex-container">
-                <img id="drag1" class="pusslebit" src="img/row-1-col-1.jpg" draggable="true" ondragstart="drag(event)" >
-                <img id="drag2" class="pusslebit" src="img/row-1-col-2.jpg" draggable="true" ondragstart="drag(event)">
-                <img id="drag3" class="pusslebit" src="img/row-2-col-1.jpg" draggable="true" ondragstart="drag(event)" >
-                <img id="drag4" class="pusslebit" src="img/row-2-col-2.jpg" draggable="true" ondragstart="drag(event)">
+            <div class="flexWrapper">
+                <div class="flex-container">
+                    <img id="drag1" class="pusslebit" src="img/row-1-col-1.jpg" draggable="true" ondragstart="drag(event)" >
+                    <img id="drag2" class="pusslebit" src="img/row-1-col-2.jpg" draggable="true" ondragstart="drag(event)">
+                    <img id="drag3" class="pusslebit" src="img/row-2-col-1.jpg" draggable="true" ondragstart="drag(event)" >
+                    <img id="drag4" class="pusslebit" src="img/row-2-col-2.jpg" draggable="true" ondragstart="drag(event)">
+                </div>
             </div>
             
             <div id="pusslespill">
