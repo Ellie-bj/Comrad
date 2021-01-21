@@ -13,19 +13,20 @@ function drag(ev) {
 }
 
 function drop(ev) {
-  ev.preventDefault();
-  var data = ev.dataTransfer.getData("text");
-  ev.target.appendChild(document.getElementById(data));
-       console.log(ev.target.id); //diven man dropper i 
-    //teste om div inneholder bilde fra før. 
-    //teste om bilde er riktig for div
-     // såkjør victory()
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    var divDrag = document.getElementById(data);
+    var divDragIDNumb = document.getElementById(data).id.slice(-1);
+    var divNumb = ev.target.id.slice(-1);
+    if (divNumb == divDragIDNumb) {
+        //riktig brikke på riktig plass
+        ev.target.appendChild(document.getElementById(data));
+        ev.target.setAttribute("ondrop", "");
+        divDrag.setAttribute("draggable", "false");
+        divDrag.setAttribute("ondragstart", "");
+        victory();
+    }//else snap back 
 
-  /*parrentid1 = document.getElementById(data).parentElement.id
-  imgId1 =
-  console.log(data);
-  console.log(); */
-  victory();
 }
 
 /** Stores the reference to the elapsed time interval*/
@@ -54,14 +55,13 @@ elapsedTimeIntervalRef = setInterval(() => {
 }
 
 
-function victory(){
-    if(document.getElementById("div1").childNodes.length > 0 && document.getElementById("div1").childNodes.length > 0){
-       
-        if(document.getElementById("div1").childNodes[0].id == "drag1" && document.getElementById("div2").childNodes[0].id == "drag2"){
+function victory() {
+    if (document.getElementById("div1").childNodes.length != 0 && document.getElementById("div2").childNodes.length != 0 && document.getElementById("div3").childNodes.length != 0 && document.getElementById("div4").childNodes.length != 0) {
+
+        if (document.getElementById("div1").childNodes[0].id == "drag1" && document.getElementById("div2").childNodes[0].id == "drag2" && document.getElementById("div3").childNodes[0].id == "drag3" && document.getElementById("div4").childNodes[0].id == "drag4") {
             victoryTime = elapsedTimeText;
             stopStopwatch();
             showModal();
-            updateView();
         }
     }
 }
