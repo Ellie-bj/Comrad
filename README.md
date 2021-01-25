@@ -7,5 +7,5 @@ M1_Team1_2021
 
 3x3 :  https://ellie-bj.github.io/Comrad/3X3/Rickroll.html
 <br>
-Puzzle: https://ellie-bj.github.io/Comrad/Puzzle%20copy/teamoppgave.html
+Puzzle: https://ellie-bj.github.io/Comrad/Puzzle/teamoppgave.html
 </div>
