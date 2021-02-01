@@ -1,18 +1,18 @@
 //MODEL
 
-let adverb1 = "_____";
-let adverb2 = "_____";
-let adverb3 = "_____";
-let adverb4 = "_____";
-let adverb5 = "_____";
-let adverb6 = "_____";
-let adverb7 = "_____";
-let adverb8 = "_____";
-let adverb9 = "_____";
-let adverb10 = "_____";
-let adverb11 = "_____";
-let adverb12 = "_____";
-let adverb13 = "_____";
+let adjektiv1 = "_____";
+let adjektiv2 = "_____";
+let adjektiv3 = "_____";
+let adjektiv4 = "_____";
+let adjektiv5 = "_____";
+let adjektiv6 = "_____";
+let adjektiv7 = "_____";
+let adjektiv8 = "_____";
+let adjektiv9 = "_____";
+let adjektiv10 = "_____";
+let adjektiv11 = "_____";
+let adjektiv12 = "_____";
+let adjektiv13 = "_____";
 
 let verb1 = "_____";
 let verb2 = "_____";
@@ -20,7 +20,7 @@ let verb3 = "_____";
 let verb4 = "_____";
 
 let wordNumb = 0;
-let verbEllerAdverb = "adverb";
+let verbEllerAdverb = "adjektiv";
 
 //VIEW
 
@@ -29,33 +29,33 @@ function updateView(){
     document.getElementById('app').innerHTML = `
         <h1>Comrad pingu!</h1>
         <div id="mainTextStyle">
-        Comrade pingu had a <b>${adverb1}</b> comrade.  Every day he would play <b>${verb1}</b> with his <b>${adverb3}</b> comrade,<br>
-        Comrade pingu always looked forward to <b>${verb2}</b> with his <b>${adverb5}</b> comrade. <br>
-        But sometimes <b>${adverb6}</b> comrade did <b>${verb3}</b> , Comrade pingu did not like <b>${adverb8}</b> . <br>
-        When Comrade pingu sleeps, he dreams about <b>${adverb9}</b> a lot. Because he thinks it is so <b>${adverb10}</b> .<br>
-        Sometimes when i wakes up at night he run to his <b>${adverb11}</b> mother to get <b>${adverb12}</b> .
-        Comrad pingu is a <b>${adverb13}</b> NOOT NOOT.
+        Comrade pingu had a <b>${adjektiv1}</b> comrade.  Every day he would play <b>${verb1}</b> with his <b>${adjektiv3}</b> comrade,<br>
+        Comrade pingu always looked forward to <b>${verb2}</b> with his <b>${adjektiv5}</b> comrade. <br>
+        But sometimes <b>${adjektiv6}</b> comrade did <b>${verb3}</b> , Comrade pingu did not like <b>${adjektiv8}</b> . <br>
+        When Comrade pingu sleeps, he dreams about <b>${adjektiv9}</b> a lot. Because he thinks it is so <b>${adjektiv10}</b> .<br>
+        Sometimes when i wakes up at night he run to his <b>${adjektiv11}</b> mother to get <b>${adjektiv12}</b> .
+        Comrad pingu is a <b>${adjektiv13}</b> NOOT NOOT.
         </div>
         <hr>
             <h2>${verbEllerAdverb}</h2>
         <hr>
         <center>
-            <h3>Adverb</h3>
+            <h3>Adjektiv</h3>
             <div id="adverbStyle">
-                <div class="adverb" onclick="chosenWord(this)">Bald</div>
-                <div class="adverb" onclick="chosenWord(this)">Nasty</div>
-                <div class="adverb" onclick="chosenWord(this)">smol</div>
-                <div class="adverb" onclick="chosenWord(this)">old</div>
-                <div class="adverb" onclick="chosenWord(this)">soviet</div>
-                <div class="adverb" onclick="chosenWord(this)">radical</div>
-                <div class="adverb" onclick="chosenWord(this)">cheese</div>
-                <div class="adverb" onclick="chosenWord(this)">Unspeakable </div>
-                <div class="adverb" onclick="chosenWord(this)">Cool </div>
-                <div class="adverb" onclick="chosenWord(this)">Scary </div>
-                <div class="adverb" onclick="chosenWord(this)">Kind </div>
-                <div class="adverb" onclick="chosenWord(this)">Horrible </div>
-                <div class="adverb" onclick="chosenWord(this)">Happy </div>
-                <div class="adverb" onclick="chosenWord(this)">Badass </div>
+                <div class="adjektiv" onclick="chosenWord(this)">Bald</div>
+                <div class="adjektiv" onclick="chosenWord(this)">Nasty</div>
+                <div class="adjektiv" onclick="chosenWord(this)">smol</div>
+                <div class="adjektiv" onclick="chosenWord(this)">old</div>
+                <div class="adjektiv" onclick="chosenWord(this)">soviet</div>
+                <div class="adjektiv" onclick="chosenWord(this)">radical</div>
+                <div class="adjektiv" onclick="chosenWord(this)">cheese</div>
+                <div class="adjektiv" onclick="chosenWord(this)">Unspeakable </div>
+                <div class="adjektiv" onclick="chosenWord(this)">Cool </div>
+                <div class="adjektiv" onclick="chosenWord(this)">Scary </div>
+                <div class="adjektiv" onclick="chosenWord(this)">Kind </div>
+                <div class="adjektiv" onclick="chosenWord(this)">Horrible </div>
+                <div class="adjektiv" onclick="chosenWord(this)">Happy </div>
+                <div class="adjektiv" onclick="chosenWord(this)">Badass </div>
             </div>
             <hr>
             <h3>Verb</h3>
@@ -80,61 +80,62 @@ function removeElement(element) {
 function chosenWord(element) {
 let word = element.innerText;
     
-if (adverb1 === "_____" && element.classList.contains("adverb") && wordNumb === 0) {
-    adverb1 = word;
+if (adjektiv1 === "_____" && element.classList.contains("adjektiv") && wordNumb === 0) {
+    adjektiv1 = word;
     wordNumb++;
     verbEllerAdverb = "Nå må du velge et Verb";
         
 } else if (verb1 === "_____" && element.classList.contains("verb") && wordNumb === 1) {
     verb1 = word;
     wordNumb++;
-    verbEllerAdverb = "Nå må du velge et adverb";
-} else if (adverb3 === "_____" && element.classList.contains("adverb") && wordNumb === 2) {
-    adverb3 = word;
+    verbEllerAdverb = "Nå må du velge et adjektiv";
+} else if (adjektiv3 === "_____" && element.classList.contains("adjektiv") && wordNumb === 2) {
+    adjektiv3 = word;
     wordNumb++;
     verbEllerAdverb = "Nå må du velge et verb";
 } else if (verb2 === "_____" && element.classList.contains("verb") && wordNumb === 3) {
     verb2 = word;
             wordNumb++;
-    verbEllerAdverb = "Nå må du velge et adverb";
-} else if (adverb5 === "_____" && element.classList.contains("adverb") && wordNumb === 4) {
-    adverb5 = word;
+    verbEllerAdverb = "Nå må du velge et adjektiv";
+} else if (adjektiv5 === "_____" && element.classList.contains("adjektiv") && wordNumb === 4) {
+    adjektiv5 = word;
     wordNumb++;
-    verbEllerAdverb = "Nå må du velge et adverb";
-} else if (adverb6 === "_____" && element.classList.contains("adverb") && wordNumb === 5) {
-    adverb6 = word;
+    verbEllerAdverb = "Nå må du velge et adjektiv";
+} else if (adjektiv6 === "_____" && element.classList.contains("adjektiv") && wordNumb === 5) {
+    adjektiv6 = word;
     wordNumb++;
     verbEllerAdverb = "Nå må du velge et verb";
 } else if (verb3 === "_____" && element.classList.contains("verb") && wordNumb === 6) {
     verb3 = word;
     wordNumb++;
-    verbEllerAdverb = "Nå må du velge et adverb";
-} else if (adverb8 === "_____" && element.classList.contains("adverb") && wordNumb === 7) {
-    adverb8 = word;
+    verbEllerAdverb = "Nå må du velge et adjektiv";
+} else if (adjektiv8 === "_____" && element.classList.contains("adjektiv") && wordNumb === 7) {
+    adjektiv8 = word;
     wordNumb++;
-    verbEllerAdverb = "Nå må du velge et adverb";
-} else if (adverb9 === "_____" && element.classList.contains("adverb") && wordNumb === 8) {
-    adverb9 = word;
+    verbEllerAdverb = "Nå må du velge et adjektiv";
+} else if (adjektiv9 === "_____" && element.classList.contains("adjektiv") && wordNumb === 8) {
+   adjektiv9 = word;
     wordNumb++;
-    verbEllerAdverb = "Nå må du velge et adverb";
-} else if (adverb10 === "_____" && element.classList.contains("adverb") && wordNumb === 9) {
-    adverb10 = word;
+    verbEllerAdverb = "Nå må du velge et adjektiv";
+} else if (adjektiv10 === "_____" && element.classList.contains("adjektiv") && wordNumb === 9) {
+    adjektiv10 = word;
     wordNumb++;
-    verbEllerAdverb = "Nå må du velge et adverb";
-} else if (adverb11 === "_____" && element.classList.contains("adverb") && wordNumb === 10) {
-    adverb11 = word;    wordNumb++;
-    verbEllerAdverb = "Nå må du velge et adverb";
-} else if (adverb12 === "_____" && element.classList.contains("adverb") && wordNumb === 11) {
-    adverb12 = word;
+    verbEllerAdverb = "Nå må du velge et adjektiv";
+} else if (adjektiv11 === "_____" && element.classList.contains("adjektiv") && wordNumb === 10) {
+    adjektiv11 = word;    wordNumb++;
+    verbEllerAdverb = "Nå må du velge et adjektiv";
+} else if (adjektiv12 === "_____" && element.classList.contains("adjektiv") && wordNumb === 11) {
+   adjektiv12 = word;
     wordNumb++;
-    verbEllerAdverb = "Nå må du velge et adverb";;
-} else if (adverb13 === "_____" && element.classList.contains("adverb") && wordNumb === 12) {
-    adverb13 = word;
+    verbEllerAdverb = "Nå må du velge et adjektiv";;
+} else if (adjektiv13 === "_____" && element.classList.contains("adjektiv") && wordNumb === 12) {
+   adjektiv13 = word;
     wordNumb++;
     verbEllerAdverb = "Good job I quess.. add meg på Nooter";
 } 
-    updateView();
+
     removeElement(element);
+    updateView();
 }
 /*
  *adverb1
