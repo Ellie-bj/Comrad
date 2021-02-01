@@ -9,3 +9,7 @@ M1_Team1_2021
 <br>
 Puzzle: https://ellie-bj.github.io/Comrad/Puzzle/teamoppgave.html
 </div>
+
+<p>
+Word Game: https://ellie-bj.github.io/Comrad/Word%20game/index.html
+</p>
