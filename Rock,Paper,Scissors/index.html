@@ -9,7 +9,7 @@
     
     <script>
         //MODEL________________________________________
-        let score = 0;
+        let score = [0, 0];
         let computerScore = 0;
         let winner = '';
         const app = document.getElementById('app');
@@ -19,28 +19,132 @@
         let computer;
         
         //VIEW_________________________________________
+
         updateView();
-        function updateView() {
-            app.innerHTML = `
+        // DETTE ER DEN MEST ROTETE VIEW FUNKSJONEN JEG NOENGANG HAR SETTT !
+        function updateView() { 
+            let html = ``;
+                html += `
                 <h1>Rock, Paper Scissors</h1>
-                <p>Score: ${score}</p>
-                    <div
-`;
+                <button>Rock</button>
+                <button>Paper</button>
+                <button>Scissors</button>
+                 <p> `; //paragraf for score
+            
+
+                 for (let i = 0; i < score.length; i++){ //lister igjenom score[0] / player score, og score[1]
+                     if (i != 0){ // betyr at det er computerScore
+                        html += "- Computer:" //legger til bindestrek mellom de to tallene på score list. 
+                     } else{
+                         html+= "Player:"   //er første runde av array score setter teksten player foran playerscore    
+                     }
+
+                     html += score[i];  //liste ut array 
+                } 
+                
+               html += `</p><div class="Pock"onclick=""></div>
+                <div class="Paper"onclick=""></div>
+                <div class="Scissors"onclick=""></div>`;
+            app.innerHTML = html;
         }
-        //CONTROLLER___________________________________
+        //CONTROLLER__________________________________________________________________________________________________
 
-        function checkWinner() { }
-        //set winner to computer || player and call for setScore(); 
+        function checkWinner()
+        {
+            if (player == paper && computer == rock || player == rock && computer == scissors || player == scissors && computer == paper)
+            {
+                return winner = "player", setScore();
+            } else if (player == paper && computer == scissors || player == rock && computer == paper || player == scissors && computer == rock)
+            {
+                return winner = 'computer', setScore(); 
+            } else if (player == paper && computer == paper || player == rock && computer == rock || player == scissors && computer == scissors)
+            {
+                return winner = 'draw';
+            } alert("Invalid");
+        }   
 
-        function setScore() {
-            if (winner = "player") {
-                score++;
-                updateView();
-            } else {
-                computerScore++;
-                updateView();
+var compare = function(choise) {
+    
+
+        function computerpc(choise)
+        {
+            var computerchoise = Math.floor(math.random() * 3);
+            if (computerchoise === 0)
+                {computerchoise = "rock";}
+            else if (computerchoise == 1)
+                {computerchoise = "paper";}
+            else
+                {computerchoise = "scissors";}
+
+            //checkWinner()
+
+            if (choise != "rock")
+            {
+                if (choise != "paper")
+                {
+                    if (choise != "scissors")
+                    {
+                        return "pick rock, paper, scissors";
+                    }
+                    else
+                    {
+                        if (choise === computerchoise)
+                        {
+                            return "TIE" + " " + computerchoise;
+                        }
+                        else if (computerchoise === "rock")
+                        {
+                            return "Du tapte" + " " + computerchoise;
+                        }
+                        else
+                        {
+                            return "NootNoot du vant" + " " + computerchoise;
+                        }
+
+                    }
+                }
+                else
+                {
+                    if (choise === computerchoise)
+                    {
+                        return "TIE" + " " + computerchoise;
+                    } else if (computerchoise === "scissors")
+                    {
+                        return "Du tapte" + " " + computerchoise;
+                    } else {
+                        return "NootNoot du vant" +" "+ computerchoise;
+                    }
+                }
+            }
+            else
+            {
+                if (choise === computerchoise)
+                {
+                    return "TIE" +" " + computerchoise;
+                } else if (computerchoise === "paper"){
+                    return "Du tapte" +" " + computerchoise;
+                } else {
+                    return "NootNoot du vant" +" "+ computerchoise;
+                }
             }
         }
-    </script>
+     }    
+        //set winner to computer || player and call for setScore(); ... 
+        //winner = 'player';
+        //setScore();
+
+                function setScore() {
+                    if (winner = "player") {
+                        score[0]++;
+                        updateView();
+                    } else {
+                        score[1]++;
+                        updateView();
+                    }
+                    if (score[0] === 3 || score[1] === 3) {
+                        //a winner
+                    }
+        }
+</script>
 </body>
 </html>
