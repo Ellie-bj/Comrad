@@ -10,12 +10,7 @@
  
 </head>
 <body>
-    <!--
-    <audio controls autoplay>
-        <source src="Rick.ogg" type="audio/ogg">
-            <source src="Rick Astley - Never Gonna Give You Up (Video).mp3" type="audio/mpeg">
-    </audio>
-    -->
+  
     <div id="page">
         <div class="content">
             <div onclick="clickedMe(this)" id="bilde1" class="rute blue">
@@ -59,7 +54,6 @@
    
     <script>
         function clickedMe(element) {
-            console.log("this");
             let img = element.getElementsByTagName("img");
             for (i = 0; i < img.length; i++) {
                 img[i].style.display = "inline"; // set visibility of all img within the element; not the document
