@@ -1,0 +1,46 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    
+    <script>
+        //MODEL________________________________________
+        let score = 0;
+        let computerScore = 0;
+        let winner = '';
+        const app = document.getElementById('app');
+        let card;
+
+        let player;
+        let computer;
+        
+        //VIEW_________________________________________
+        updateView();
+        function updateView() {
+            app.innerHTML = `
+                <h1>Rock, Paper Scissors</h1>
+                <p>Score: ${score}</p>
+                    <div
+`;
+        }
+        //CONTROLLER___________________________________
+
+        function checkWinner() { }
+        //set winner to computer || player and call for setScore(); 
+
+        function setScore() {
+            if (winner = "player") {
+                score++;
+                updateView();
+            } else {
+                computerScore++;
+                updateView();
+            }
+        }
+    </script>
+</body>
+</html>
