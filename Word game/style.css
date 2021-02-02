@@ -1,0 +1,54 @@
+body{
+    background-color: lightgreen;
+    background-image: url("https://wallpapercave.com/wp/Rstecz1.jpg");
+    background-repeat:no-repeat;
+}
+h1{
+    text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0,0,0,.5), 2px 12px 7px rgba(219,20,68,0);
+    color: #303030;
+    font-size: 90px;
+}
+#app{
+    text-align: center;
+}
+
+#adverbStyle, 
+#verbStyle{
+    width: 200px;
+    display:flex;
+    flex-wrap:wrap;
+}
+
+#adverbStyle div:hover, 
+#verbStyle div:hover {
+    background:white;
+    cursor:pointer;
+}
+
+#adverbStyle div{
+    margin-left: 20px;
+    background-color:rgb(179, 230, 230);
+    border-style:inset;
+}
+#verbStyle div{
+    background-color:rgb(221, 184, 221);
+    margin-left:20px;
+    border-style:inset;
+}
+
+h3{
+    margin-left:20px;
+} 
+
+#mainTextStyle{
+font-family: "Times New Roman", Times, serif;
+font-size: 20px;
+letter-spacing: -0.2px;
+word-spacing: -0.4px;
+color: #000000;
+font-weight: normal;
+text-decoration: none;
+font-style: normal;
+font-variant: normal;
+text-transform: none;
+}
