@@ -2,7 +2,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Comrad Pingu</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="app"></div>
@@ -14,14 +15,14 @@
         let winner = '';
         const app = document.getElementById('app');
         let card;
-
+        let actionText;
         let player;
         let computer;
         
         //VIEW_________________________________________
 
         updateView();
-        // DETTE ER DEN MEST ROTETE VIEW FUNKSJONEN JEG NOENGANG HAR SETTT !
+        // DETTE ER DEN MEST ROTETE VIEW FUNKSJONEN JEG NOENGANG HAR SETTT ! Du er den mest rotete jeg har sett!
         function updateView() { 
             let html = ``;
                 html += `
@@ -40,95 +41,115 @@
                      }
 
                      html += score[i];  //liste ut array 
-                } 
+            } 
+
                 
-               html += `</p><div class="Pock"onclick=""></div>
-                <div class="Paper"onclick=""></div>
-                <div class="Scissors"onclick=""></div>`;
+            html += `</p><p>${actionText}</p>
+            <div class="gameContainer">
+                <div class="Rock"onclick="computerpc(this.className)"> 
+                    <img src="\Rock.jpg" alt="Rock">
+                Rock</div>
+                <div class="Paper"onclick="computerpc(this.className)"> 
+                    <img src="\Paper.png" alt="Paper">
+                    Paper</div>
+                <div class="Scissors"onclick="computerpc(this.className)"> 
+                    <img src="\scissors.jpg" alt="Scissors">
+                    Scissors</div>
+
+             </div>`;
             app.innerHTML = html;
         }
         //CONTROLLER__________________________________________________________________________________________________
 
-        function checkWinner()
-        {
-            if (player == paper && computer == rock || player == rock && computer == scissors || player == scissors && computer == paper)
+        /*
+            function checkWinner()
             {
-                return winner = "player", setScore();
-            } else if (player == paper && computer == scissors || player == rock && computer == paper || player == scissors && computer == rock)
-            {
-                return winner = 'computer', setScore(); 
-            } else if (player == paper && computer == paper || player == rock && computer == rock || player == scissors && computer == scissors)
-            {
-                return winner = 'draw';
-            } alert("Invalid");
-        }   
+                if (player == paper && computer == rock || player == rock && computer == scissors || player == scissors && computer == paper)
+                {
+                    return winner = "player", setScore();
+                } else if (player == paper && computer == scissors || player == rock && computer == paper || player == scissors && computer == rock)
+                {
+                    return winner = 'computer', setScore(); 
+                } else if (player == paper && computer == paper || player == rock && computer == rock || player == scissors && computer == scissors)
+                {
+                    return winner = 'draw';
+                } alert("Invalid");
+            }  
+       */
 
-var compare = function(choise) {
-    
+ //Computer checwinner shhiiieet ^^,       
 
         function computerpc(choise)
         {
-            var computerchoise = Math.floor(math.random() * 3);
+            var computerchoise = Math.floor(Math.random() * 3);      //Computer velger random
+
             if (computerchoise === 0)
                 {computerchoise = "rock";}
             else if (computerchoise == 1)
                 {computerchoise = "paper";}
             else
                 {computerchoise = "scissors";}
-
+            console.log(computerchoise);
             //checkWinner()
 
-            if (choise != "rock")
+            if (choise != "Rock")
             {
-                if (choise != "paper")
+                if (choise != "Paper")
                 {
-                    if (choise != "scissors")
+                    if (choise != "Scissors")
                     {
-                        return "pick rock, paper, scissors";
+                        actionText = "pick rock, paper, scissors";
                     }
                     else
                     {
-                        if (choise === computerchoise)
+                        if (choise === computerchoise) //Når computer velger rock - Tie - du taper - du vinner.
                         {
-                            return "TIE" + " " + computerchoise;
+                            actionText = "TIE" + " " + computerchoise;     //GJØR IKKE EN DRITT ATM-.- *angry face*
                         }
-                        else if (computerchoise === "rock")
+                        else if (computerchoise === "rock")                //Computern velger Rock
                         {
-                            return "Du tapte" + " " + computerchoise;
+                            actionText = "Du tapte. Computern valgte" + " " + computerchoise;   //Teksten hvis du taper mot Rock
                         }
                         else
                         {
-                            return "NootNoot du vant" + " " + computerchoise;
+                            actionText =  "NootNoot du vant. Computern valgte" + " " + computerchoise;  //Teksten hvis du vinner mot Rock
                         }
 
                     }
                 }
                 else
                 {
-                    if (choise === computerchoise)
+                    if (choise === computerchoise) //Når computer velger saks - Tie - du taper - du vinner.
                     {
-                        return "TIE" + " " + computerchoise;
-                    } else if (computerchoise === "scissors")
+                        actionText = "TIE" + " " + computerchoise;      // FUCK TIE!
+
+                    } 
+                    else if (computerchoise === "scissors")          //Computern velger scissors
                     {
-                        return "Du tapte" + " " + computerchoise;
-                    } else {
-                        return "NootNoot du vant" +" "+ computerchoise;
+                        actionText = "Du tapte. Computern valgte" + " " + computerchoise;    //teksten hvis taper når computer velger scissors
+                    } 
+                    else {
+                        actionText = "NootNoot du vant. Computern valgte" +" "+ computerchoise;   //Teksten hvis du vinner når computer velger scissors
                     }
                 }
             }
             else
             {
-                if (choise === computerchoise)
+                if (choise === computerchoise) //Når computer velger papir - Tie - du taper - du vinner.
                 {
-                    return "TIE" +" " + computerchoise;
-                } else if (computerchoise === "paper"){
-                    return "Du tapte" +" " + computerchoise;
-                } else {
-                    return "NootNoot du vant" +" "+ computerchoise;
+                    actionText = "TIE" + " " + computerchoise;  // NO ONE LIKES TIE!......
+                } 
+                else if (computerchoise === "paper")      //Computern velger paper
+                {
+                    actionText = "Du tapte. Computern valgte" +" " + computerchoise;  //teksten hvis du taper når computern velger paper
+                } 
+                else {
+                    actionText = "NootNoot du vant. Computern valgte" +" "+ computerchoise; //teksten hvis du vinner når computern velger paper
                 }
             }
+            updateView();
         }
-     }    
+
         //set winner to computer || player and call for setScore(); ... 
         //winner = 'player';
         //setScore();

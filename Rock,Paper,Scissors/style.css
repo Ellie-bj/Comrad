@@ -1,0 +1,22 @@
+
+
+.Gamecontainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+.Rock img{
+  
+   width: 100px;;
+   height:300px;
+}
+
+.Paper img{
+    width:200px;
+    height:300px;
+}
+
+.Scissors img{
+   
+    width:200px;
+    height:300px;
+}
