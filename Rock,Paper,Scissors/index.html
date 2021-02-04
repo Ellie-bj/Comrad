@@ -15,10 +15,11 @@
         let winner = '';
         const app = document.getElementById('app');
         let card;
-        let actionText;
+        let actionText = "";
         let player;
         let computer;
-        
+        let vunnet = "";
+        let css = "none";
         //VIEW_________________________________________
 
         updateView();
@@ -27,9 +28,7 @@
             let html = ``;
                 html += `
                 <h1>Rock, Paper Scissors</h1>
-                <button>Rock</button>
-                <button>Paper</button>
-                <button>Scissors</button>
+                
                  <p> `; //paragraf for score
             
 
@@ -48,15 +47,16 @@
             <div class="gameContainer">
                 <div class="Rock"onclick="computerpc(this.className)"> 
                     <img src="\Rock.jpg" alt="Rock">
-                Rock</div>
+               </div>
                 <div class="Paper"onclick="computerpc(this.className)"> 
                     <img src="\Paper.png" alt="Paper">
-                    Paper</div>
+                    </div>
                 <div class="Scissors"onclick="computerpc(this.className)"> 
                     <img src="\scissors.jpg" alt="Scissors">
-                    Scissors</div>
+                    </div>
 
              </div>`;
+            html += `<div id="modal" style="display:${css}"> ${vunnet} <button onclick="restartGame()">Restart!</button></div>`;
             app.innerHTML = html;
         }
         //CONTROLLER__________________________________________________________________________________________________
@@ -84,78 +84,75 @@
             var computerchoise = Math.floor(Math.random() * 3);      //Computer velger random
 
             if (computerchoise === 0)
-                {computerchoise = "rock";}
+                {computerchoise = "Rock";}
             else if (computerchoise == 1)
-                {computerchoise = "paper";}
+                {computerchoise = "Paper";}
             else
-                {computerchoise = "scissors";}
+                {computerchoise = "Scissors";}
             console.log(computerchoise);
             //checkWinner()
 
-            if (choise != "Rock")
-            {
-                if (choise != "Paper")
-                {
-                    if (choise != "Scissors")
-                    {
-                        actionText = "pick rock, paper, scissors";
-                    }
-                    else
-                    {
-                        if (choise === computerchoise) //Når computer velger rock - Tie - du taper - du vinner.
-                        {
-                            actionText = "TIE" + " " + computerchoise;     //GJØR IKKE EN DRITT ATM-.- *angry face*
-                        }
-                        else if (computerchoise === "rock")                //Computern velger Rock
-                        {
-                            actionText = "Du tapte. Computern valgte" + " " + computerchoise;   //Teksten hvis du taper mot Rock
-                        }
-                        else
-                        {
-                            actionText =  "NootNoot du vant. Computern valgte" + " " + computerchoise;  //Teksten hvis du vinner mot Rock
-                        }
+            checkWinner(computerchoise, choise);
 
-                    }
+
+        }
+
+        function checkWinner(computerchoise, choise) {
+
+            if (computerchoise == choise) {
+                console.log("tie");
+                actionText = "tie";
+            } else {
+                if (choise == "Rock" && computerchoise == "Scissors") {
+                    actionText = "Win";
+                    winner = "player";
+                    setScore();
+                } else if (choise == "Rock" && computerchoise != "Scissors") {
+                    actionText = "Loss";
+                    winner = "Computer";
+                    setScore();
                 }
-                else
-                {
-                    if (choise === computerchoise) //Når computer velger saks - Tie - du taper - du vinner.
-                    {
-                        actionText = "TIE" + " " + computerchoise;      // FUCK TIE!
-
-                    } 
-                    else if (computerchoise === "scissors")          //Computern velger scissors
-                    {
-                        actionText = "Du tapte. Computern valgte" + " " + computerchoise;    //teksten hvis taper når computer velger scissors
-                    } 
-                    else {
-                        actionText = "NootNoot du vant. Computern valgte" +" "+ computerchoise;   //Teksten hvis du vinner når computer velger scissors
-                    }
+                if (choise === "Paper" && computerchoise === "Rock") {
+                    actionText = "Win";
+                    winner = "player";
+                    setScore();
+                } else if (choise === "Paper" && computerchoise != "Rock") {
+                    actionText = "loss";
+                    winner = "Computer";
+                    setScore();
+                }
+                if (choise === "Scissors" && computerchoise === "Paper") {
+                    actionText = "win";
+                    winner = "player";
+                    setScore();
+                } else if (choise === "Scissors" && computerchoise != "Paper") {
+                    actionText = "loss";
+                    winner = "Computer";
+                    setScore();
                 }
             }
-            else
-            {
-                if (choise === computerchoise) //Når computer velger papir - Tie - du taper - du vinner.
-                {
-                    actionText = "TIE" + " " + computerchoise;  // NO ONE LIKES TIE!......
-                } 
-                else if (computerchoise === "paper")      //Computern velger paper
-                {
-                    actionText = "Du tapte. Computern valgte" +" " + computerchoise;  //teksten hvis du taper når computern velger paper
-                } 
-                else {
-                    actionText = "NootNoot du vant. Computern valgte" +" "+ computerchoise; //teksten hvis du vinner når computern velger paper
-                }
-            }
-            updateView();
+
+
+
+
+           updateView();
+
         }
 
         //set winner to computer || player and call for setScore(); ... 
         //winner = 'player';
         //setScore();
 
+        function restartGame() {
+            css = "none";
+            score[0] = 0;
+            score[1] = 0;
+            actionText = "";
+            updateView();
+        }
+
                 function setScore() {
-                    if (winner = "player") {
+                    if (winner == "player") {
                         score[0]++;
                         updateView();
                     } else {
@@ -163,7 +160,14 @@
                         updateView();
                     }
                     if (score[0] === 3 || score[1] === 3) {
-                        //a winner
+                        //show modal
+                        css = "inline";
+                        if (score[0] === 3) {
+                            vunnet = "Du har vunnet";
+                        } else {
+                            vunnet = "Du har tapt";
+                        }
+                        updateView();
                     }
         }
 </script>
