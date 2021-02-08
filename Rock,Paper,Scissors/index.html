@@ -20,6 +20,8 @@
         let computer;
         let vunnet = "";
         let css = "none";
+        let computerchoise ="";
+        let playerChoise ="";
         //VIEW_________________________________________
 
         updateView();
@@ -43,7 +45,7 @@
             } 
 
                 
-            html += `</p><p>${actionText}</p>
+            html += `</p><p>Player valgte:${playerChoise} Computer valgte:${computerchoise}</p><p>${actionText}</p>
             <div class="gameContainer">
                 <div class="Rock"onclick="computerpc(this.className)"> 
                     <img src="\Rock.jpg" alt="Rock">
@@ -81,7 +83,7 @@
 
         function computerpc(choise)
         {
-            var computerchoise = Math.floor(Math.random() * 3);      //Computer velger random
+             computerchoise = Math.floor(Math.random() * 3);      //Computer velger random
 
             if (computerchoise === 0)
                 {computerchoise = "Rock";}
@@ -91,7 +93,7 @@
                 {computerchoise = "Scissors";}
             console.log(computerchoise);
             //checkWinner()
-
+            playerChoise = choise;
             checkWinner(computerchoise, choise);
 
 
