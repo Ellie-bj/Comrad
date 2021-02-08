@@ -10,4 +10,6 @@ M1_Team1_2021
 Puzzle: https://ellie-bj.github.io/Comrad/Puzzle/teamoppgave.html
 <br>
 Word Game: https://ellie-bj.github.io/Comrad/Word%20game/index.html
+<br>
+Rock, Paper, Scissors: https://ellie-bj.github.io/Comrad/
 </div>
