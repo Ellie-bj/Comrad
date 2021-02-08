@@ -11,5 +11,5 @@ Puzzle: https://ellie-bj.github.io/Comrad/Puzzle/teamoppgave.html
 <br>
 Word Game: https://ellie-bj.github.io/Comrad/Word%20game/index.html
 <br>
-Rock, Paper, Scissors: https://ellie-bj.github.io/Comrad/
+Rock, Paper, Scissors: https://ellie-bj.github.io/Comrad/Rock%2CPaper%2CScissors/index.html
 </div>
