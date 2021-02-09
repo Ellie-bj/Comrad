@@ -1,0 +1,42 @@
+* {
+    margin: 0px; /* resetter browser til å ta bort browser margin  */
+    padding: 0px; /* resetter browser til å ta bort browser padding  */
+    background-color: darkslategray;
+}
+
+
+#wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    margin: auto;
+    width: 300px;
+    margin-top:200px;
+}
+
+/*General button style*/
+.button{
+    width: 100px;
+    height:100px;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    border-style: outset;
+}
+
+/*On mouseover style*/
+.button:hover{
+    background-image: radial-gradient(circle, rgba(255, 0, 0, 0), rgba(255, 255, 255, 0.246), rgba(75, 75, 75, 0.445));
+}
+
+/*Individual button colors*/
+#button0{background-color: rgb(255, 127, 127);}
+#button1{background-color: rgb(163, 255, 127);}
+#button2{background-color: rgb(255, 246, 127);}
+#button3{background-color: rgb(127, 255, 244);}
+#button4{background-color: rgb(127, 204, 255);}
+#button5{background-color: rgb(127, 129, 255);}
+#button6{background-color: rgb(214, 127, 255);}
+#button7{background-color: rgb(255, 127, 127);}
+#button8{background-color: rgb(220, 10, 228);}
+    
+
+

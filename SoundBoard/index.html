@@ -1,0 +1,49 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>SoundBoard</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+
+        //MODEL_________
+        let Sounds = 
+        [
+            "Mp3/Pingu_Intro1.mp3" , 
+            "Mp3/Pingu_Intro2.mp3" , 
+            "Mp3/Pingu_Intro3.mp3" , 
+            "Mp3/Pingu_Intro4.mp3" ,
+            "Mp3/Pingu_Intro5.mp3" , 
+            "Mp3/Pingu_Intro6.mp3" , 
+            "Mp3/Pingu_Intro7.mp3" , 
+            "Mp3/Pingu_Intro8.mp3" , 
+            "Mp3/Pingu_Intro9.mp3" 
+        ]
+        //VIEW__________
+        let app = document.getElementById('app');
+        //CONTROLLER____
+        app.innerHTML += '';
+        updateView();
+        function updateView() {
+            let html = ``;
+            html += `<div id="wrapper">`;
+            for (i = 0; i < Sounds.length; i++ ) {
+                html += `<div id="button${i}" class="button" onclick="playSound(${i})"></div>`
+            };
+            html += `</div>`;
+            app.innerHTML = html;
+        }
+
+        function playSound(index){
+            // skriv kode for å spille av lyd[index];
+            audioObject = new Audio(Sounds[index]);
+            audioObject.play();
+        }
+
+    </script>
+</body>
+
+</html>
