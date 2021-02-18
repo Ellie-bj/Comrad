@@ -25,25 +25,138 @@
         //audioValue.play();  
       
         let boss ={
-            health: 100
+            health: 100,
+            dmg: 5,
+            coins: 100,
+            xp: 100
         };
         let player = {
-            health: 100
+            health: 100,
+            dmg: 5,
+            coins: 0, 
+            xp: 0,
+            potions: 0
         };
+        let initGame = ``;
+        let levels = [100, 300, 500, 1000, 1500, 4000];
+
+        function initLevel() {
+            boss.health = 100;
+            initGame = ``;
+            updateView();
+        }
+
+        function levelUp() {
+            player.xp += boss.xp;
+            for (i = 0; i < levels.length; i++) {
+                if (levels[i] === player.xp) {
+                    console.log
+                    levels.splice(i, 1);
+                    player.dmg += 5; 
+                    console.log(levels);
+                }
+            }
+        }
+
+        //call for crit strike: 
+        // criticalStrike(player);
+
+        function attackBoss() {
+            
+            if (boss.health > 0 && player.health > 0) {
+               
+                let critical = criticalStrike(player);
+                console.log(critical);
+                if (critical) {
+                    boss.health -= player.dmg;
+                    console.log(player.dmg);
+                    player.dmg -= 5;
+                } else {
+                    boss.health -= player.dmg;
+                    console.log(player.dmg);
+                }
+
+                if (boss.health < 0) { // fikser bug så boss aldri får mindre enn 0 hp 
+                    boss.health = 0;
+                }
+
+                if (boss.health == 0) {
+                    dropLoot();
+                    initGame = '<button onclick="initLevel()">Next Battle</button>';
+                    levelUp();
+                } else {
+                    attackPlayer();
+                }
+                
+            } else if(boss.health == 0){
+               
+            }
+            
+            updateView();
+       //  player.health = Math.floor (Math.random() *6 );
+        // boss.health = Math.floor (Math.random() *6 );
+            
+        }
 
         updateView();
         function updateView() {
             let html = "";
-            html += `<h1>Player Health:</h1><br><div class="healthBarHolder"><div class="playerHealth" style="width:${player.health}%">${player.health} %</div></div>`; 
+            html += `<div id="healthWrappper"> <div><h1>Player Health:</h1><br><div class="healthBarHolder"><div class="playerHealth" style="width:${player.health}%">${player.health} %</div></div>`; 
+            html += `<h3>Coins: ${player.coins}</h3><h3>Potions: ${player.potions}</h3>`;
             html += `<h1>Boss Health:</h1><br><div class="healthBarHolder"><div class="bossHealth" style="width:${boss.health}%">${boss.health} %</div></div>`;
-            html += '<button onclick="attack()">Attack</button>';
-            console.log(html);
+            html += `<button onclick="attackBoss()">Attack</button>
+                    <button onclick="usePotion()">Use Potion</button>${initGame}</div>`;
+            html += `<div><button onclick="buyPotion()">buy potion</button></div></div>`;
             app.innerHTML = html;
         }
-        /*function attack() {
-            boss.health -= 5;
+
+        function attackPlayer() {
+           
+                let critical = criticalStrike(boss);
+                if (critical) {
+                    player.health -= boss.dmg;
+                    boss.dmg = 5;
+                } else {
+                    player.health -= boss.dmg;
+                }
             updateView();
-        }*/
+        }
+
+        
+        function dropLoot() {
+            let loot = boss.coins;
+            player.coins += loot; 
+        }
+
+        function criticalStrike(obj) {
+            let rnd = Math.floor(Math.random()*5);
+            if (rnd === 1) {
+                obj.dmg += 5;
+                return true
+            } else {
+                return false
+            }
+        }
+
+        function buyPotion() {
+            if (player.coins >= 100) {
+                console.log(player.coin);
+                player.coins -= 100;
+                player.potions++;
+            }
+            updateView();
+        }
+
+        function usePotion() {
+            if (player.health < 100 && player.potions > 0) {
+                player.health += 50;
+                if (player.health > 100) {
+                    player.health = 100;
+                }
+                player.potions--;
+                updateView();
+            }
+        }
 
     </script>
 </body>

@@ -22,3 +22,7 @@ body{
     border:1px solid black;
     width:200px;
 }
+#healthWrappper{
+    display:grid; 
+    grid-template-columns:repeat(2, 1fr);
+}
