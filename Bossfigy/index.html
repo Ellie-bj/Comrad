@@ -22,11 +22,11 @@
     <script >
         let app = document.getElementById("app");
         let audioValue = new Audio('OminusBattle.mp3');
-        //audioValue.play();  
+        audioValue.play();  
       
         let boss ={
             health: 100,
-            dmg: 5,
+            dmg: 3,
             coins: 100,
             xp: 100
         };
@@ -48,21 +48,8 @@
             updateView();
         }
 
-        function levelUp() {
-            player.xp += boss.xp;
-            for (i = 0; i < levels.length; i++) {
-                if (levels[i] === player.xp) {
-                    console.log
-                    levels.splice(i, 1);
-                    player.currentLevel++;
-                    player.dmg += 5; 
-                    console.log(levels);
-                }
-            }
-        }
+        
 
-        //call for crit strike: 
-        // criticalStrike(player);
 
         function attackBoss() {
             
@@ -70,23 +57,21 @@
                
                 let critical = criticalStrike(player);
                 console.log(critical);
-                if (critical) {
-                    boss.health -= player.dmg;
-                    console.log(player.dmg);
-                    player.dmg -= 5;
-                } else {
-                    boss.health -= player.dmg;
-                    console.log(player.dmg);
+                if (critical) { // crit er trigret, skal være crit strike
+                    boss.health -= player.dmg; //trekker fra dmg + critstrike fra boss.health
+                    player.dmg -= 5; //tar bort crit fra dmg. 
+                } else { //er ikke crit strike
+                    boss.health -= player.dmg; //trekker fra normal dmg.  
                 }
 
                 if (boss.health < 0) { // fikser bug så boss aldri får mindre enn 0 hp 
                     boss.health = 0;
                 }
 
-                if (boss.health == 0) {
-                    dropLoot();
-                    initGame = '<button onclick="initLevel()">Next Battle</button>';
-                    levelUp();
+                if (boss.health == 0) { // boss er død, videre til neste level 
+                    dropLoot(); //dropper looten til bossen og gir den til player
+                    initGame = '<button class="largeButton" onclick="initLevel()">Next Battle</button>'; //legger til knapp for neste nivå. 
+                    levelUp(); //tester om player har nok xp til å levle opp. 
                 } else {
                     attackPlayer();
                 }
@@ -96,24 +81,23 @@
             }
             
             updateView();
-       //  player.health = Math.floor (Math.random() *6 );
-        // boss.health = Math.floor (Math.random() *6 );
             
         }
 
         updateView();
-        function updateView() {
+        function updateView() { //viewet til spillet 
             let html = "";
             html += `<div id="healthWrappper"> <div><h1>Player Health:</h1><br><div class="healthBarHolder"><div class="playerHealth" style="width:${player.health}%">${player.health} %</div></div>`; 
             html += `<h3>Coins: ${player.coins}</h3><h3>Potions: ${player.potions}</h3> <h3> Current Level: ${player.currentLevel}</h3>`;
             html += `<h1>Boss Health:</h1><br><div class="healthBarHolder"><div class="bossHealth" style="width:${boss.health}%">${boss.health} %</div></div>`;
-            html += `<button onclick="attackBoss()">Attack</button>
-                    <button onclick="usePotion()">Use Potion</button>${initGame}</div>`;
-            html += `<div><button onclick="buyPotion()">buy potion</button></div></div>`;
+            html += `<button class="largeButton" onclick="attackBoss()">Attack</button>
+                    <button class="largeButton" onclick="usePotion()">Use Potion</button>${initGame}</div>
+                    `;
+            html += `<div><h1>Store:</h1><button  class="largeButton" onclick="buyPotion()">buy potion</button></div></div>`;
             app.innerHTML = html;
         }
 
-        function attackPlayer() {
+        function attackPlayer() { //boss attacks player
            
                 let critical = criticalStrike(boss);
                 if (critical) {
@@ -121,17 +105,31 @@
                     boss.dmg = 5;
                 } else {
                     player.health -= boss.dmg;
-                }
+            }
+            if (player.health < 0) {
+                player.health = 0;
+            }
             updateView();
         }
 
         
-        function dropLoot() {
+        function dropLoot() { //bossen dropper sin loot
             let loot = boss.coins;
             player.coins += loot; 
         }
 
-        function criticalStrike(obj) {
+        function levelUp() {
+            player.xp += boss.xp;
+            for (i = 0; i < levels.length; i++) {
+                if (levels[i] === player.xp) {
+                    levels.splice(i, 1);
+                    player.currentLevel++;
+                    player.dmg += 5;
+                }
+            }
+        }
+
+        function criticalStrike(obj) { //legger til critstrike om random number blir 1 
             let rnd = Math.floor(Math.random()*5);
             if (rnd === 1) {
                 obj.dmg += 5;
@@ -141,9 +139,8 @@
             }
         }
 
-        function buyPotion() {
-            if (player.coins >= 100) {
-                console.log(player.coin);
+        function buyPotion() { //lar player kjøpe health potions for sin loot 
+            if (player.coins >= 100 && player.health != 0) { //player har nok penger til health potion
                 player.coins -= 100;
                 player.potions++;
             }

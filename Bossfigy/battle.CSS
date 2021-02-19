@@ -25,4 +25,21 @@ body{
 #healthWrappper{
     display:grid; 
     grid-template-columns:repeat(2, 1fr);
+   
+}
+
+h3 {
+    background: white;
+    width: 200px;
+}
+
+h1 {
+    background: white;
+    width: 200px;
+}
+
+.largeButton{
+    width:100px; 
+    height:40px;
+    margin-top:40px;
 }
