@@ -35,10 +35,12 @@
             dmg: 5,
             coins: 0, 
             xp: 0,
-            potions: 0
+            potions: 0,
+            currentLevel: 1
         };
         let initGame = ``;
         let levels = [100, 300, 500, 1000, 1500, 4000];
+      
 
         function initLevel() {
             boss.health = 100;
@@ -52,6 +54,7 @@
                 if (levels[i] === player.xp) {
                     console.log
                     levels.splice(i, 1);
+                    player.currentLevel++;
                     player.dmg += 5; 
                     console.log(levels);
                 }
@@ -102,7 +105,7 @@
         function updateView() {
             let html = "";
             html += `<div id="healthWrappper"> <div><h1>Player Health:</h1><br><div class="healthBarHolder"><div class="playerHealth" style="width:${player.health}%">${player.health} %</div></div>`; 
-            html += `<h3>Coins: ${player.coins}</h3><h3>Potions: ${player.potions}</h3>`;
+            html += `<h3>Coins: ${player.coins}</h3><h3>Potions: ${player.potions}</h3> <h3> Current Level: ${player.currentLevel}</h3>`;
             html += `<h1>Boss Health:</h1><br><div class="healthBarHolder"><div class="bossHealth" style="width:${boss.health}%">${boss.health} %</div></div>`;
             html += `<button onclick="attackBoss()">Attack</button>
                     <button onclick="usePotion()">Use Potion</button>${initGame}</div>`;
