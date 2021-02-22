@@ -26,12 +26,12 @@
       
         let boss ={
             health: 100,
-            dmg: 3,
+            dmg: 5,
             coins: 100,
             xp: 100
         };
         let player = {
-            health: 100,
+            health: 80,
             dmg: 5,
             coins: 0, 
             xp: 0,
@@ -104,7 +104,9 @@
                     player.health -= boss.dmg;
                     boss.dmg = 5;
                 } else {
-                    player.health -= boss.dmg;
+                    let rnd = Math.floor(Math.random()*5)
+                    player.health -= rnd;
+                    console.log(rnd);
             }
             if (player.health < 0) {
                 player.health = 0;
